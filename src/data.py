@@ -1,6 +1,10 @@
+
 """Données en mémoire pour l'annuaire d'étudiants."""
+
 from copy import deepcopy
-ALLOWED_FIELDS = ("Informatique", "Mathématiques", "Physique", "Biologie")
+
+ALLOWED_FIELDS = ("informatique", "mathématiques", "physique", "chimie")
+
 INITIAL_STUDENTS = [
     {
         "id": 1,
@@ -8,7 +12,7 @@ INITIAL_STUDENTS = [
         "lastName": "Diallo",
         "email": "ahmed@example.com",
         "grade": 16,
-        "field": "Informatique",
+        "field": "informatique",
     },
     {
         "id": 2,
@@ -40,12 +44,13 @@ INITIAL_STUDENTS = [
         "lastName": "Dupont",
         "email": "Jean@example.com",
         "grade": 16,
-        "field": "Informatique",
+        "field": "informatique",
     },
 ]
 
 students = []
 next_id = 1
+
 
 def reset_students():
     """Restaure les étudiants initiaux et le prochain identifiant."""
