@@ -175,7 +175,7 @@ def create_student():
     data.students.append(student)
     data.next_id += 1
 
-    return jsonify(student), 200 
+    return jsonify(student), 201
 
 
 @app.put("/students/<student_id>")
