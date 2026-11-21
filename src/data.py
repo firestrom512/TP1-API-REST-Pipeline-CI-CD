@@ -1,48 +1,45 @@
-
-"""Données en mémoire pour l'annuaire d'étudiants."""
+"""Stockage en mémoire et jeu de données initial."""
 
 from copy import deepcopy
-
-ALLOWED_FIELDS = ("informatique", "mathématiques", "physique", "chimie")
 
 INITIAL_STUDENTS = [
     {
         "id": 1,
-        "firstName": "Ahmed",
+        "firstName": "Aminata",
         "lastName": "Diallo",
-        "email": "ahmed@example.com",
-        "grade": 16,
+        "email": "aminata.diallo@example.com",
+        "grade": 17,
         "field": "informatique",
     },
     {
         "id": 2,
-        "firstName": "Marie",
-        "lastName": "Martin",
-        "email": "Marie@example.com",
+        "firstName": "Ahmed",
+        "lastName": "Benali",
+        "email": "ahmed.benali@example.com",
         "grade": 14,
-        "field": "chimie",
+        "field": "mathématiques",
     },
     {
         "id": 3,
-        "firstName": "Ali",
-        "lastName": "Traoré",
-        "email": "Ali@example.com",
-        "grade": 9,
+        "firstName": "Clara",
+        "lastName": "Martin",
+        "email": "clara.martin@example.com",
+        "grade": 19,
         "field": "physique",
     },
     {
         "id": 4,
-        "firstName": "Fatou",
-        "lastName": "Koné",
-        "email": "Fatou@example.com",
-        "grade": 11,
-        "field": "mathématiques",
+        "firstName": "Moussa",
+        "lastName": "Traoré",
+        "email": "moussa.traore@example.com",
+        "grade": 12,
+        "field": "chimie",
     },
     {
         "id": 5,
-        "firstName": "Jean",
-        "lastName": "Dupont",
-        "email": "Jean@example.com",
+        "firstName": "Lina",
+        "lastName": "Moreau",
+        "email": "lina.moreau@example.com",
         "grade": 16,
         "field": "informatique",
     },
@@ -52,8 +49,21 @@ students = []
 next_id = 1
 
 
-def reset_students():
-    """Restaure les étudiants initiaux et le prochain identifiant."""
-    global students, next_id
-    students = deepcopy(INITIAL_STUDENTS)
-    next_id = max(student["id"] for student in students) + 1
+def reset_data():
+    """Restaurer les cinq étudiants de départ et le prochain identifiant."""
+    global next_id
+    students.clear()
+    students.extend(deepcopy(INITIAL_STUDENTS))
+    next_id = max(item["id"] for item in students) + 1
+
+
+def create_student(payload):
+    """Ajouter un étudiant validé en lui attribuant un ID unique."""
+    global next_id
+    student = {"id": next_id, **payload}
+    students.append(student)
+    next_id += 1
+    return student
+
+
+reset_data()

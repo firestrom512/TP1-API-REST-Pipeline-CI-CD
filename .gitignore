@@ -1,6 +1,18 @@
+# Environnements virtuels
 .venv/
+venv/
+
+# Cache Python / pytest / Ruff
 __pycache__/
-*.pyc
-.env
+*.py[cod]
 .pytest_cache/
 .ruff_cache/
+.coverage
+htmlcov/
+
+# IDE, OS, secrets
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.env
