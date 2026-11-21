@@ -30,7 +30,7 @@ def get_student(student_id):
 
 @app.get("/students")
 def list_students():
-    return jsonify(data.students), 200
+    return jsonify(data.students), 201
 
 
 # Les routes littérales doivent être déclarées avant /students/<student_id>.
